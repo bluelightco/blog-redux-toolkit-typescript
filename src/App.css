@@ -1,0 +1,46 @@
+.counter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.counter-container h1 {
+  font-size: 60px;
+}
+
+.counter-container div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-container button {
+  margin: 0 8px;
+  font-size: 20px;
+  padding: 0 10px;
+  border: 0;
+  color: #ffffff;
+  background: #333333;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.counter-container p {
+  font-size: 55px;
+  margin: 25px 0;
+  min-width: 100px;
+  text-align: center;
+}
+
+.counter-container span {
+  font-size: 20px;
+  margin: 12px;
+}
+
+
+.counter-container input {
+  font-size: 20px;
+  margin: 12px;
+}
