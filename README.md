@@ -1,15 +1,20 @@
 # Redux Toolkit with Typescript
 
- * **Redux** :  is a predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments (client, server, and native). [Redux](https://redux.js.org/)
+ * **Redux** :  Redux is an open-source JavaScript library for managing and centralizing the application state. It is most commonly used with libraries such as React or Angular for building user interfaces. Similar to (and inspired by) Facebook's Flux architecture. [Redux](https://redux.js.org/)
 
-* **Redux Toolkit** : is a package is intended to be the standard way to write Redux logic. [Redux Toolkit](https://redux-toolkit.js.org/)
+* **Redux Toolkit** :  Redux Toolkit is the official Redux toolkit, opinionated, with batteries for efficient Redux development. This is intended to be the standard way of writing Redux logic, and it is highly recommended that you use it. It includes several utility functions that simplify the most common use cases of Redux, including store configuration, setting dimmers, immutable update logic, and even creating entire "slices" of state at once without writing any action creators or type of action manually. It also includes the most used Redux add-ons, such as Redux Thunk for asynchronous logic and Reselect for writing selector functions, so you can use them right away. [Redux Toolkit](https://redux-toolkit.js.org/)
 
-* **Typescript** : is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale. [Typescript](https://www.typescriptlang.org/)
+* **Typescript** : TypeScript is an open-source programming language developed by Microsoft. It is a strict syntactic superset of JavaScript and adds optional static typing to the language. Types provide a way to describe the shape of an object, providing better documentation and allowing TypeScript to validate that your code is working correctly. Since TypeScript is a superset of JavaScript, existing JavaScript programs are also valid TypeScript programs. [Typescript](https://www.typescriptlang.org/)
 
 <hr />
 
 Explained that, now I'll show you how to implement Redux Toolkit with TypeScript in React.
 
+# Why Redux Toolkit?
+
+The Redux Toolkit makes it easy to write good Redux applications and speeds up development by following our best practices, providing good default behaviors, detecting errors, and allowing you to write simpler code. The Redux Toolkit is beneficial to all Redux users, regardless of skill level or experience, whether you are a new Redux user setting up your first project, or an experienced user who wants to simplify an existing application
+
+# Getting started
 
 Two situations will be discussed:
 
@@ -33,6 +38,8 @@ Or
 After the dependencies are installed, create a file for your Redux Store. Ex: src/store/index.ts
 
 Within this file, you must use the “configureStore” function of ReduxToolkit to create your store and later export it.
+
+> configureStore: Function that provides simplified configuration options to combine all your reducers or add any middleware.
 
 ```
 import { configureStore } from '@reduxjs/toolkit'
@@ -72,6 +79,8 @@ In this function, you will need to set three properties: name, initialState, and
  * **name** : Used in action types (String)
  * **initialState** : Initial state for the respective reducer (any)
  * **reducers** : An object of reducer functions. Key names will be used to generate actions.(Object<string, function>)
+
+Redux Toolkit allows us to write "mutating" logic in reducers. It doesn't actually mutate the state because it uses the Immer library, which detects changes to a "draft state" and produces a brand new immutable state based on those changes.
 
 ```
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
@@ -172,6 +181,44 @@ Creating a new project with Redux Toolkit is very simple, you will just use the 
 ` npx create-react-app APPLICATION_NAME --template redux-typescript `
 
 Behind the scenes the CRA will be used to create your React application, in the end, you will have a similar structure to this :
+
+* src
+
+  * app
+
+    * hooks.ts
+
+    * store.ts
+
+  * features
+
+    * counter
+
+      * counter.module.css
+
+      * counter.tsx
+
+      * counterAPI.ts
+
+      * counterSlice.spec.ts
+
+      * counterSlice.ts
+
+
+* **app/hooks.ts**: While you can import RootState and AppDispatch types for each component, it's better to create typed versions of the “useDispatch” and “useSelector” hooks for use in your application. This allows you to import them into any component files that need to use the hooks and avoids potential circular import dependency issues.
+
+* **app/store.ts**: To use the "configureStore" function no extra typing is required. However, you will want to use RootState and Dispatch typing inside files that will need this reference. These definitions are created and exported within the store.ts file.
+
+* **features/counter/counter.module.css**: Simply the file of the stylizations of the component created.
+
+* **features/counter/counter.tsx**:  Main component file, where dispatch functions triggers and global state values ​​are used. In addition to all Html structures being present inside it.
+
+* **counterAPI.ts**: Inside is a dummy function to mimic an asynchronous data request.
+
+* **counterSlice.spec.ts**: File where tests are created for the main features of the component.
+
+* **counterSlice.ts**: The location where reducers and actions are defined and all the logic to manage the global state and control so that data consistency is always maintained
+
 
 
 # Conclusion
