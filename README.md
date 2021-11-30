@@ -1,14 +1,25 @@
 # Redux Toolkit with Typescript
 
- * **Redux** :  Redux is an open-source JavaScript library for managing and centralizing the application state. It is most commonly used with libraries such as React or Angular for building user interfaces. Similar to (and inspired by) Facebook's Flux architecture. [Redux](https://redux.js.org/)
+If you're a React developer and you've ever had to work with global/shared states you know how complicated this can be.
 
-* **Redux Toolkit** :  Redux Toolkit is the official Redux toolkit, opinionated, with batteries for efficient Redux development. This is intended to be the standard way of writing Redux logic, and it is highly recommended that you use it. It includes several utility functions that simplify the most common use cases of Redux, including store configuration, setting dimmers, immutable update logic, and even creating entire "slices" of state at once without writing any action creators or type of action manually. It also includes the most used Redux add-ons, such as Redux Thunk for asynchronous logic and Reselect for writing selector functions, so you can use them right away. [Redux Toolkit](https://redux-toolkit.js.org/)
+Today there are two main ways to use this concept: Redux and Context API. Both approaches have a prior understanding curve to be able to use them in the best way.
 
-* **Typescript** : TypeScript is an open-source programming language developed by Microsoft. It is a strict syntactic superset of JavaScript and adds optional static typing to the language. Types provide a way to describe the shape of an object, providing better documentation and allowing TypeScript to validate that your code is working correctly. Since TypeScript is a superset of JavaScript, existing JavaScript programs are also valid TypeScript programs. [Typescript](https://www.typescriptlang.org/)
+And whenever Redux is talked about, its high complexity and verbosity is always raised when developing, even greater when it comes to working with typescript.
 
-<hr />
+But today I will discuss the Redux Toolkit tool, which is an official Redux library that makes it easy to not only configure but use all the resources offered by Redux.
+If you've ever found Redux to be boring and difficult, I'm sure the explanations and examples I'll show you will rethink the subject.
 
 Explained that, now I'll show you how to implement Redux Toolkit with TypeScript in React.
+
+
+# Table of Contents 
+
+* Why Redux Toolkit?
+* Getting started
+* Implement within an existing project
+* Creating a new project
+* Conclusion
+
 
 # Why Redux Toolkit?
 
@@ -74,7 +85,8 @@ ReactDOM.render(
 
 
 To create your reducers, use the Redux Toolkit's createSlice function.
-In this function, you will need to set three properties: name, initialState, and reducers.
+In this function, you will need to set three properties: name, 
+, and reducers.
 
  * **name** : Used in action types (String)
  * **initialState** : Initial state for the respective reducer (any)
@@ -225,3 +237,11 @@ Behind the scenes the CRA will be used to create your React application, in the 
 
 Redux Toolkit is an excellent tool to give productivity to applications that use redux and together with Typescript your applications will be reliable and easy to maintain.
 As much as everything can be built only with redux, the complexity and verbosity make the development slower and with a greater understanding curve
+
+<hr />
+
+ * **Redux** :  Redux is an open-source JavaScript library for managing and centralizing the application state. It is most commonly used with libraries such as React or Angular for building user interfaces. Similar to (and inspired by) Facebook's Flux architecture. [Redux](https://redux.js.org/)
+
+* **Redux Toolkit** :  Redux Toolkit is the official Redux toolkit, opinionated, with batteries for efficient Redux development. This is intended to be the standard way of writing Redux logic, and it is highly recommended that you use it. It includes several utility functions that simplify the most common use cases of Redux, including store configuration, setting dimmers, immutable update logic, and even creating entire "slices" of state at once without writing any action creators or type of action manually. It also includes the most used Redux add-ons, such as Redux Thunk for asynchronous logic and Reselect for writing selector functions, so you can use them right away. [Redux Toolkit](https://redux-toolkit.js.org/)
+
+* **Typescript** : TypeScript is an open-source programming language developed by Microsoft. It is a strict syntactic superset of JavaScript and adds optional static typing to the language. Types provide a way to describe the shape of an object, providing better documentation and allowing TypeScript to validate that your code is working correctly. Since TypeScript is a superset of JavaScript, existing JavaScript programs are also valid TypeScript programs. [Typescript](https://www.typescriptlang.org/)
